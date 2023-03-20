@@ -1,6 +1,7 @@
-import Image from 'next/image'
+"use client"
 import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import React, { useEffect, useState } from 'react'
+import './page.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -8,14 +9,25 @@ export default function Home() {
   return (
     <main>
       <header>
-        <NavBar/>
+        <Cursor/>
       </header>
     </main>
   )
 }
 
-export function NavBar() {
+export function Cursor() {
+
+  useEffect(() => {
+    const cursor = document.getElementById('cursor')
+    document.addEventListener('mousemove', c => {
+    cursor?.setAttribute("style", "top: "+(c.pageY - 10)+"px; left: "+(c.pageX - 10)+"px;")
+    })
+  });
+
   return (
-    <h1></h1>
-  );
+    <div className="cursor-main">
+      <div id='cursor' className='cursor'></div>
+    </div>
+  )
 }
+

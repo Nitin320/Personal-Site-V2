@@ -1,9 +1,69 @@
 
 /* CURSOR */
+
 .cursor{
     width: 20px;
     height: 20px;
-    border: 1px solid white;
+    border: 1px solid cyan;
     border-radius: 50%;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: 100ms;
+    transition-timing-function: ease-out;
+}
+
+.pointer{
+    width: 5px;
+    height: 5px;
+    background-color: cyan;
+    border-radius: 50%;
+}
+
+.click-anim{
+    animation: click-anim 0.3s linear;
+}
+
+@keyframes click-anim {
+    50%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* NAVABAR */
+
+.nav-main{
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+}
+
+.nav-items{
+    padding-top: 2vh;
+    padding-right: 2vw;
+    flex: 0.5;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+a{
+    z-index: 1;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    margin-bottom: 10px;
+}
+
+a:hover{
+    color: cyan;
+    border-bottom: 1px solid cyan;
 }
